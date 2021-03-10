@@ -1,3 +1,8 @@
+/**
+Write a recursive function evaluate that accepts a string representing a math expression and computes its value.
+- The expression will be "fully parenthesized" and will consist of + and * on single-digit integers only.
+- You can use a helper function. (Do not change the original function header)
+**/
 const evaluate = function(expression) {
   if(expression.indexOf(")") === -1) {
     return expression
@@ -10,7 +15,7 @@ const evaluate = function(expression) {
         expression.indexOf(")"))
   str = str.substr(0, str.indexOf(")")+1)
   result = eval(str)
-  
+
   return evaluate(expression.replace(str, result))
 }
 
