@@ -1,17 +1,17 @@
 const evaluate = function(expression) {
-    if(expression.indexOf(")") === -1) {
-      return expression
-    }
-    if((expression.split(")").length - 1) ===  1) {
-        return eval(expression)
-    }
-    str = expression.substr(
+  if(expression.indexOf(")") === -1) {
+    return expression
+  }
+  if((expression.split(")").length - 1) ===  1) {
+    return eval(expression)
+  }
+  str = expression.substr(
         expression.lastIndexOf("("),
         expression.indexOf(")"))
-    str = str.substr(0, str.indexOf(")")+1)
-
-    result = eval(str)
-    return evaluate(expression.replace(str, result))
+  str = str.substr(0, str.indexOf(")")+1)
+  result = eval(str)
+  
+  return evaluate(expression.replace(str, result))
 }
 
 console.log(evaluate("7"))
