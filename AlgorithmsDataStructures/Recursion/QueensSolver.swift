@@ -16,29 +16,34 @@ import Foundation
 /// - Your total recursive calls should not exceed 120 times.
 
 var count = 0
+var p = 0
 func solveQueens(board: inout Board) {
-  	
   var b = board
-  _ = solveQueensHelper(board: &b)
-  print(b)
+  solveQueensHelper(board: &b)
   print("Total recursive calls: \(count)")
+  print("Possible ways: \(p)")
 }
 
-func solveQueensHelper(board: inout Board, col: Int = 0) -> Bool {
+func solveQueensHelper(board: inout Board, col: Int = 0) {
   count += 1
-  if col >= board.size {
-    return true
+  if col == board.size {
+    p += 1
+    guard p == 1 else {
+      print(board)
+      return
+    }
+    print("First possible way with \(count) recursive calls")
+    print(board)
   }
-  
+  //try to place the queen on each row per column
   for i in 0..<board.size {
     if board.isSafe(row: i, col: col) {
+      //choose
       board.place(row: i, col: col)
-      
-      if solveQueensHelper(board: &board, col: col + 1) {
-        return true
-      }
+      //explore
+      solveQueensHelper(board: &board, col: col + 1)
+      //un-choose
       board.remove(row: i, col: col)
     }
   }
-  return false
 }
