@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// The **Stack** class represents a stack of generic items.
+/// It supports pushing, popping, and iterating over the items in the order they are pushed from the most recent to the first pushed item
+/// This implementation uses a singly linked list with an inner class Node.
+/// The *push*, *pop*, *peek*, *isEmpty*, and *count* operations take constant time *O(1)*. Iteration takes linear time *O(n)
 public final class Stack<E>: Sequence {
   /// beginning of stack
   private var first: Node<E>? = nil

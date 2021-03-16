@@ -6,7 +6,11 @@
 //
 
 import Foundation
-
+/// The **Queue** class represents a queue of generic items.
+/// It supports enqueueing, dequeueing, and iterating over the items
+/// in the order they are enqueued from the first item in the rear to the last item in the front
+/// This implementation uses a singly linked list with an inner class Node.
+/// The *enqueue*, *dequeue*, *peek*, *isEmpty*, and *count* operations take constant time *O(1)*. Iteration takes linear time *O(n)
 public final class Queue<E>: Sequence {
   /// beginning of queue
   private var front: Node<E>? = nil
