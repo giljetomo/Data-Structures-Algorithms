@@ -17,8 +17,8 @@ func cyclicPermutation() {
     
     for e in 0..<num {
       let v = elements[e]
+      //unidirectional
       adjList[e + 1].append(v)
-      adjList[v].append(e + 1)
     }
     
     func dfs(vertex: Int, adjList: inout [[Int]], visited: inout [Bool]) {
