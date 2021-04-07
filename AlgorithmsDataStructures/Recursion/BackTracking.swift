@@ -26,7 +26,9 @@ func rollDiceSumHelper(n: Int, desiredSum: Int, soFar: Int, choices: inout [Int]
   } else {
     for i in 1...6 {
       // choose i, and the remaining desired sum should be between 1 * (n-1) <=   <= 6 * (n-1)
-      if soFar + i + (n - 1) * 1 <= desiredSum && desiredSum <= soFar + i + (n - 1) * 6 {
+      let min = soFar + i + (n - 1) * 1
+      let max = soFar + i + (n - 1) * 6
+      if min <= desiredSum && desiredSum <= max {
         choices.append(i)
         rollDiceSumHelper(n: n - 1, desiredSum: desiredSum, soFar: soFar + i, choices: &choices)
         choices.removeLast()

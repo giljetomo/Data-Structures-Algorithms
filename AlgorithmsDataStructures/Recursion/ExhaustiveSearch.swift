@@ -86,3 +86,45 @@ func permutationUnique(_ word: String, _ soFar: String = "", _ set: inout Set<St
     }
   }
 }
+
+
+//func rollDiceSum(dice: Int, sum: Int) {
+//  var choices = [Int]()
+//  rollDiceSumHelper(dice: dice, sum: sum, choices: &choices)
+//}
+//
+//func rollDiceSumHelper(dice: Int, sum: Int, choices: inout [Int]) {
+//  if dice == 0 {
+//  
+//  } else {
+//    for i in 1 ... 6 {
+//      choices.append(i)
+//      rollDiceSum(dice: dice - 1, sum: &choices)
+//      choices.removeLast()
+//    }
+//  }
+//}
+
+func permute(_ nums: [Int]) -> [[Int]] {
+  var choices = [Int]()
+  var soFar = [[Int]]()
+  return permuteHelper(nums, &choices, &soFar)
+}
+
+func permuteHelper(_ nums: [Int], _ choices: inout [Int], _ soFar: inout [[Int]]) -> [[Int]] {
+  if nums.count == 0 {
+    soFar.append(choices)
+  } else {
+    for i in 0..<nums.count {
+      choices.append(nums[i])
+      var a = nums
+      a.remove(at: i)
+      _ = permuteHelper(a, &choices, &soFar)
+      choices.removeLast()
+    }
+  }
+  if choices.count == 0 {
+    return Array(Set(soFar))
+  }
+  return [[]]
+}
