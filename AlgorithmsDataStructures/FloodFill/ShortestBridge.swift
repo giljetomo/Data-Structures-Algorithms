@@ -58,6 +58,7 @@ func islands() {
     }
   }
   
+  //start from island #1 and build bridge to remaining islands from each node of island #1
   for x in 0..<n {
     for y in 0..<n {
       if coloredMap[x][y] == 0 {
