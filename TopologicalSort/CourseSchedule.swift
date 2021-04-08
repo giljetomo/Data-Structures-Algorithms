@@ -8,8 +8,9 @@
 import Foundation
 
 func canFinishCourses(numCourses: Int, prerequisites: [[Int]]) -> Bool {
-  //create an array to store the in-degree counts of each vertex
+  //for storing the in-degree counts of each vertex
   var indegree = [Int](repeating: 0, count: numCourses)
+  //for storing the graph
   var adjList = [[Int]](repeating: [], count: numCourses)
   
 ///alternative implementation without using adjacency list
@@ -27,7 +28,7 @@ func canFinishCourses(numCourses: Int, prerequisites: [[Int]]) -> Bool {
     indegree[u] += 1
   }
   
-  //create a queue and initially enqueue it with all vertex with in-degree count of 0.
+  //create a queue and initially enqueue all vertices with in-degree count of 0.
   let q = Queue<Int>()
   //only the vertex with 0 in-degree will be enqueued
   for i in 0..<indegree.count where indegree[i] == 0 {
