@@ -44,12 +44,12 @@ public struct UF {
   /// - Parameter p: an element
   /// - Returns: the canonical element of the set containing `p`
   public mutating func find(_ p: Int) -> Int {
-    var root = p
-    while root != parent[p] {
-      parent[p] = parent[parent[p]]
-      root = parent[p]
+    var i = p
+    while i != parent[i] {
+      parent[i] = parent[parent[i]]
+      i = parent[i]
     }
-    return root
+    return i
   }
   
   /// Returns `true` if the two elements are in the same set.
@@ -70,7 +70,7 @@ public struct UF {
     let i = find(p)
     let j = find(q)
     
-    guard i != j else { return }
+    if i == j { return }
     
     if size[i] < size[j] {
       parent[i] = j

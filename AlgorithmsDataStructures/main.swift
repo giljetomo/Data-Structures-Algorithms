@@ -57,4 +57,31 @@ import Foundation
 //LCA()
 //cyclicPermutation()
 //shortestPath()
-islands()
+//islands()
+
+//var uf = UF(10)
+//uf.union(4, 3)
+//uf.union(3, 8)
+//uf.union(6, 5)
+//uf.union(9, 4)
+//uf.union(2, 1)
+//print(uf.connected(0, 7))
+//print(uf.connected(8, 9))
+//uf.union(5, 0)
+//uf.union(7, 2)
+//uf.union(6, 1)
+//uf.union(1, 0)
+////uf.union(7, 3)
+//print(uf.connected(0, 7))
+
+//let arr = [[4,3], [0,1], [2, 1], [1,0], [2,4]]
+
+//let arr = [[1,0], [0,1]]
+
+//print(canFinishCourses(numCourses: 5, prerequisites: arr))
+
+//print(twoCitySchedCost([[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]))
+//print(twoCitySchedCost([[10,20],[30,200],[400,50],[30,20]]))
+
+print(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]))
+print(canCompleteCircuit([3,3,4], [3,4,4]))
