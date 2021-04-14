@@ -83,5 +83,7 @@ import Foundation
 //print(twoCitySchedCost([[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]))
 //print(twoCitySchedCost([[10,20],[30,200],[400,50],[30,20]]))
 
-print(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]))
+print(canCompleteCircuit([1,2,3,4,5],
+                         [3,4,5,1,2]))
+
 print(canCompleteCircuit([3,3,4], [3,4,4]))

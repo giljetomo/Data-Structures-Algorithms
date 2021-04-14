@@ -12,12 +12,12 @@ import Foundation
 /// It supports **union** and **find** operations, along with methods for
 /// determining whether two nodes are in the same component and the total
 /// number of components.
-/// This implementation uses weighted quick union (by size or rank) with
+/// - This implementation uses weighted quick union (by size or rank) with
 /// full path compression.
-/// Initializing a data structure with **n** nodes takes linear time.
-/// Afterwards, **union**, **find**, and **connected** take logarithmic time
+/// - Initializing a data structure with **n** nodes takes linear time.
+/// - Afterwards, **union**, **find**, and **connected** take logarithmic time
 /// (in the worst case) and **count** takes constant time.
-/// Moreover, the amortized time per **union**, **find**, and **connected** operation
+/// - Moreover, the amortized time per **union**, **find**, and **connected** operation
 /// has inverse Ackermann complexity (which is practically < 5 for 2^(2^(2^(2^16))) - undefined number).
 public struct UF {
   /// parent[i] = parent of i
@@ -44,12 +44,18 @@ public struct UF {
   /// - Parameter p: an element
   /// - Returns: the canonical element of the set containing `p`
   public mutating func find(_ p: Int) -> Int {
-    var i = p
-    while i != parent[i] {
-      parent[i] = parent[parent[i]]
-      i = parent[i]
+    try! validate(p)
+    var root = p
+    while root != parent[root] { // find the root
+      root = parent[root]
     }
-    return i
+    var p = p
+    while p != root {
+      let newp = parent[p]
+      parent[p] = root  // path compression
+      p = newp
+    }
+    return root
   }
   
   /// Returns `true` if the two elements are in the same set.
@@ -58,7 +64,7 @@ public struct UF {
   ///   - q: the other element
   /// - Returns: `true` if `p` and `q` are in the same set; `false` otherwise
   public mutating func connected(_ p: Int, _ q: Int) -> Bool {
-    return parent[p] == parent[q]
+    return find(p) == find(q)
   }
   
   /// Merges the set containing element `p` with the set containing
@@ -67,17 +73,29 @@ public struct UF {
   ///   - p: one element
   ///   - q: the other element
   public mutating func union(_ p: Int, _ q: Int) {
-    let i = find(p)
-    let j = find(q)
+    let rootP = find(p)
+    let rootQ = find(q)
+    guard rootP != rootQ else { return } // already connected
     
-    if i == j { return }
-    
-    if size[i] < size[j] {
-      parent[i] = j
-      size[j] += size[i]
+    // make smaller root point to larger one
+    if size[rootP] < size[rootQ] {
+      parent[rootP] = rootQ
+      size[rootQ] += size[rootP]
     } else {
-      parent[j] = i
-      size[i] += size[j]
+      parent[rootQ] = rootP
+      size[rootP] += size[rootQ]
+    }
+    count -= 1
+  }
+  
+  private func validate(_ p: Int) throws {
+    let n = parent.count
+    guard p >= 0 && p < n else {
+      throw RuntimeError.illegalArgumentError("index \(p) is not between 0 and \(n - 1)")
     }
   }
+}
+
+enum RuntimeError: Error {
+    case illegalArgumentError(String)
 }

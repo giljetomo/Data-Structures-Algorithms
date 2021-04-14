@@ -43,3 +43,42 @@ func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
   //    }
   //  }
 }
+
+
+
+
+// imaginary car
+
+// N gas stations = refill tank
+
+// cost to visit every gas station
+// tank = 5
+// gas = [5,6,3,2,5]
+// cost = [10,1,4,5,6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
