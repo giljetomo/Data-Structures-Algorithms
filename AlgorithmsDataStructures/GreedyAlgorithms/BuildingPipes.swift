@@ -136,3 +136,5 @@ public struct UF {
 enum RuntimeError: Error {
     case illegalArgumentError(String)
 }
+
+numOfDays()
