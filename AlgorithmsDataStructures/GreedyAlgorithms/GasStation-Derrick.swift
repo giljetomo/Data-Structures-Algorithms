@@ -38,7 +38,7 @@ func canCompleteCircuitIntuitive(_ gas: [Int], _ cost: [Int]) -> Int {
   return -1
 }
 
-func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
+func canCompleteCircuit2(_ gas: [Int], _ cost: [Int]) -> Int {
   /// [].enumerated() - array of (index, value) tuples
   let gas = gas.enumerated().map { $1 - cost[$0] }
   let numStations = gas.count

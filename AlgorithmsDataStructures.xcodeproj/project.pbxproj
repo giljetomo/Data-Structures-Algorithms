@@ -24,6 +24,8 @@
 		5246346A26269D5C001E469E /* CourseSchedule2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246346826269D5C001E469E /* CourseSchedule2.swift */; };
 		5246346F26269D73001E469E /* CourseSchedule-Derrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246346E26269D73001E469E /* CourseSchedule-Derrick.swift */; };
 		5246347326269DB5001E469E /* TimeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246347226269DB5001E469E /* TimeMachine.swift */; };
+		52463478262765F0001E469E /* BuildingPipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52463477262765F0001E469E /* BuildingPipes.swift */; };
+		5246347B262769BD001E469E /* IndexPriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246347A262769BD001E469E /* IndexPriorityQueue.swift */; };
 		52477BCF25F9D7F300E419B8 /* ExhaustiveSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52477BCE25F9D7F300E419B8 /* ExhaustiveSearch.swift */; };
 		526D1E06261153D80003E949 /* LCA(linear).swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D1E05261153D70003E949 /* LCA(linear).swift */; };
 		526D1E0A261154130003E949 /* Town.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D1E09261154130003E949 /* Town.swift */; };
@@ -91,6 +93,8 @@
 		5246346826269D5C001E469E /* CourseSchedule2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSchedule2.swift; sourceTree = "<group>"; };
 		5246346E26269D73001E469E /* CourseSchedule-Derrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CourseSchedule-Derrick.swift"; sourceTree = "<group>"; };
 		5246347226269DB5001E469E /* TimeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMachine.swift; sourceTree = "<group>"; };
+		52463477262765F0001E469E /* BuildingPipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingPipes.swift; sourceTree = "<group>"; };
+		5246347A262769BD001E469E /* IndexPriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPriorityQueue.swift; sourceTree = "<group>"; };
 		52477BCE25F9D7F300E419B8 /* ExhaustiveSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhaustiveSearch.swift; sourceTree = "<group>"; };
 		526D1E05261153D70003E949 /* LCA(linear).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LCA(linear).swift"; sourceTree = "<group>"; };
 		526D1E09261154130003E949 /* Town.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Town.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				5246343F26269920001E469E /* MSTImplementation.swift */,
+				52463477262765F0001E469E /* BuildingPipes.swift */,
 				5246342C26269639001E469E /* PartitionLabels.swift */,
 				5246342D26269639001E469E /* TaskScheduler.swift */,
 				5246345D26269CCD001E469E /* TwoCityScheduling.swift */,
@@ -243,6 +248,7 @@
 			children = (
 				52D5ED942600086A00D3C9E7 /* Bag.swift */,
 				52D5EDA42602A74C00D3C9E7 /* TreeTraversal.swift */,
+				5246347A262769BD001E469E /* IndexPriorityQueue.swift */,
 				524634422626997B001E469E /* UF.swift */,
 				52D5EDA12601CC6800D3C9E7 /* TopM.swift */,
 				52D5EDA7260444FC00D3C9E7 /* LowestCommonAncestor.swift */,
@@ -386,8 +392,10 @@
 				5246345926269B7E001E469E /* Bridges.swift in Sources */,
 				52D5EDC1260ACBE700D3C9E7 /* TreeAssignment.swift in Sources */,
 				52D5ED8725FD43AF00D3C9E7 /* Board.swift in Sources */,
+				52463478262765F0001E469E /* BuildingPipes.swift in Sources */,
 				52D5ED7D25FB373200D3C9E7 /* BackTracking.swift in Sources */,
 				52D5ED952600086A00D3C9E7 /* Bag.swift in Sources */,
+				5246347B262769BD001E469E /* IndexPriorityQueue.swift in Sources */,
 				522AEC8E25F820AB00B3F4FE /* main.swift in Sources */,
 				5246343026269639001E469E /* PartitionLabels.swift in Sources */,
 				5246346526269D1B001E469E /* GasStation-Derrick.swift in Sources */,
