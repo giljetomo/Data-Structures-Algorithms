@@ -7,44 +7,6 @@
 
 import Foundation
 
-func numOfDays() -> Int {
-  let input = readLine()!.split(separator: " ").map { Int($0)! }
-  let buildings = input[0]
-  let pipes = input[1]
-  let enhancer = input[2]
-  var allEdges = [(u: Int, v: Int, w: Int)]()
-  var mstEdges = [(u: Int, v: Int, w: Int)]()
-//  var mstEdges = [[(v: Int, w: Int)]](repeating: [(Int, Int)](repeating: (v: 0, w: 0), count: 0), count: buildings + 1)
-  
-  for _ in 1...pipes {
-    let line = readLine()!.split(separator: " ").map { Int($0)! }
-    let u = line[0]
-    let v = line[1]
-    let w = line[2]
-    allEdges.append((u: u, v: v, w: w))
-  }
-  
-  allEdges.sort { $0.w < $1.w }
-
-  var days = 0
-  var maxCost = (cost: 0, u: 0, v: 0)
-  var uf = UF(buildings + 1)
-  for edge in allEdges {
-    if uf.connected(edge.u, edge.v) { // || mstEdges[edge.u].count == 2 {
-      days += 1
-      continue
-    }
-    uf.union(edge.u, edge.v)
-    maxCost = maxCost.cost < edge.w ? (cost: edge.w, u: edge.u, v: edge.v) : maxCost
-    mstEdges.append(edge)
-//    mstEdges[edge.u].append((edge.v, edge.w))
-//    mstEdges[edge.v].append((edge.u, edge.w))
-  }
-//  let maxEdges = mstEdges.max(by: { $0.count < $1.count })!.count
-//  return maxEdges - 2 == 0 ? 0 : maxEdges - days
-  return days
-}
-
 /// The UF struct represents a union-find (disjoint sets) data structure
 /// It supports **union** and **find** operations, along with methods for
 /// determining whether two nodes are in the same component and the total
@@ -135,6 +97,40 @@ public struct UF {
 
 enum RuntimeError: Error {
     case illegalArgumentError(String)
+}
+
+func numOfDays() -> Int {
+  let input = readLine()!.split(separator: " ").map { Int($0)! }
+  let buildings = input[0]
+  let pipes = input[1]
+  let enhancer = input[2]
+  var allEdges = [(u: Int, v: Int, w: Int, isActive: Bool)]()
+  var mstEdges = [(u: Int, v: Int, w: Int, isActive: Bool)]()
+  
+  for i in 1...pipes {
+    let line = readLine()!.split(separator: " ").map { Int($0)! }
+    let u = line[0]
+    let v = line[1]
+    let w = line[2]
+    allEdges.append((u: u, v: v, w: w, isActive: i < buildings))
+  }
+  
+  allEdges.sort { $0.w < $1.w }
+
+  var days = 0
+  var uf = UF(buildings + 1)
+  for edge in allEdges {
+    if uf.connected(edge.u, edge.v) { continue }
+    uf.union(edge.u, edge.v)
+    mstEdges.append((u: edge.u, v: edge.v, w: edge.w, isActive: edge.isActive))
+    if !edge.isActive { days += 1 }
+  }
+  return enhancer == 0 ? days : applyEnhancer(days)
+}
+
+func applyEnhancer(_ days: Int) -> Int {
+  //pending implementation
+  return days
 }
 
 numOfDays()
