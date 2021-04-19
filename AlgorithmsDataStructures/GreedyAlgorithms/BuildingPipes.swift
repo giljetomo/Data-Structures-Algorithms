@@ -99,6 +99,11 @@ enum RuntimeError: Error {
     case illegalArgumentError(String)
 }
 
+func applyEnhancer(_ days: Int) -> Int {
+  //pending implementation
+  return days
+}
+
 func numOfDays() -> Int {
   let input = readLine()!.split(separator: " ").map { Int($0)! }
   let buildings = input[0]
@@ -126,11 +131,6 @@ func numOfDays() -> Int {
     if !edge.isActive { days += 1 }
   }
   return enhancer == 0 ? days : applyEnhancer(days)
-}
-
-func applyEnhancer(_ days: Int) -> Int {
-  //pending implementation
-  return days
 }
 
 numOfDays()
